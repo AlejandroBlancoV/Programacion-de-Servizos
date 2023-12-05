@@ -10,7 +10,8 @@ public class TestSegundoHiloJoin {
 		for(int i=0;i<20;i++) {
 			windows= new SegundoHilo(i);
 			windows.start();
-			
+			System.out.println(windows.getId()+" "+windows.getName());
+			System.out.println(Thread.currentThread().getName()+"------"+Thread.currentThread().getId()); 
 			try {
 				windows.join();// obliga al hilo que lo llama a terminar antes que el hilo desde el que se lanza.
 			} catch (InterruptedException e) {
