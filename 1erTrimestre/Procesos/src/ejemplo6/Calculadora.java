@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 
 public class Calculadora {
+	static int limite=0;
 	
 	public static void hacerCalculos(String fichEntrada,String fichSalida) throws IOException {
 		
@@ -27,7 +28,10 @@ public class Calculadora {
 		
 			//2 Sumar las cantidades de dicho fichero
 		for(String s : cantidades) {
-			suma+= Integer.parseInt(s);
+			if(Integer.parseInt(s)>=limite) {
+				suma+= Integer.parseInt(s);
+			}
+			
 		}
 		//provisionalmente
 		System.out.println("el total de gastos de: "+fichEntrada+" es: "+suma+" €");
@@ -41,24 +45,7 @@ public class Calculadora {
 	}
 	
 	
-public static void main(String[] args) {
-	String ent, sal;
-	Scanner jaime= new Scanner(System.in);
-	
-	System.out.println("fichero de entrada: ");
-	ent=args[0];//jaime.nextLine()
-	
-	System.out.println("fichero de salida: ");
-	sal=args[1];//jaime.nextLine()
-	
-	try {
-		hacerCalculos(ent,sal);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-}
+
 
 
 public static BufferedReader getBufferedReader(
